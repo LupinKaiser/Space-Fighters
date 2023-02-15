@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject enemy2;
+    public GameObject enemyBoss;
 
     float maxRateOfSpawn = 2f;
 
@@ -49,6 +50,19 @@ public class EnemySpawner : MonoBehaviour
         NextSpawn();
     }
 
+    void SpawnBoss()
+    {
+        Destroy(gameObject);
+
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+
+        GameObject anEnemy = (GameObject)Instantiate(enemyBoss);
+
+        anEnemy.transform.position = new Vector2(Random.Range(min.x, max.x), max.y);
+    }
+
     void NextSpawn()
     {
         float spawnInSeconds;
@@ -64,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
         Invoke("SpawnEnemy", spawnInSeconds+2);
         Invoke("SpawnEnemy2", spawnInSeconds+5);
+        Invoke("SpawnBoss", spawnInSeconds + 20);
     }
        
 

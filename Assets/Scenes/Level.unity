@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7c894dae76f93489c750205b392f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 5451583896027553875, guid: eede5eae990315d429a64146e3da0f44, type: 3}
 --- !u!1 &1291550349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8995534428111959705, guid: 8e2202b835ac87d4093fbfae138a6a7b, type: 3}
   enemy2: {fileID: 7163771908073972414, guid: 37aab3828918e154f9aaaac4289281c0, type: 3}
+  enemyBoss: {fileID: 5451583896027553875, guid: eede5eae990315d429a64146e3da0f44, type: 3}
 --- !u!1 &1498091337
 GameObject:
   m_ObjectHideFlags: 0

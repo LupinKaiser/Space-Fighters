@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyContoller : MonoBehaviour
 {
-    float speed;
+    public float speed;
     public GameObject Explosion;
-    int maxHealth = 2;
+    public int maxHealth = 2;
     int currenthealth;
     GameObject scoretext;
 
@@ -44,7 +44,7 @@ public class EnemyContoller : MonoBehaviour
             if(currenthealth <= 0)
             {
                 FindObjectOfType<AudioManager>().Play("Explosion");
-                scoretext.GetComponent<GameScore>().Score += 500;
+                scoretext.GetComponent<GameScore>().Score += 1000;
                 playExplosion();
                 Destroy(gameObject);
             }

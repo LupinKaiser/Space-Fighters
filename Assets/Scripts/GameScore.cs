@@ -8,6 +8,7 @@ public class GameScore : MonoBehaviour
 {
     TextMeshProUGUI text;
     int score;
+    public GameObject enemy;
 
     public int Score
     {
@@ -34,7 +35,7 @@ public class GameScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score == 10000)
+        if(score >= 10500)
         {
             SceneManager.LoadScene("Win");
         }
@@ -45,4 +46,5 @@ public class GameScore : MonoBehaviour
         string Score = string.Format("{0:00000}", score);
         text.text = Score;
     }
+
 }
