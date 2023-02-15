@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
     public GameObject playerBullet;
     public GameObject bulletPosition;
+    public GameObject Explosion;
+    public TextMeshProUGUI text;
+    int maxHealth = 10;
+    int currenthealth;
+    AudioManager bulletsound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currenthealth = maxHealth;
+        text.text = currenthealth.ToString();
+
+        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -19,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            FindObjectOfType<AudioManager>().Play("Bullet");
             GameObject bullet = (GameObject)Instantiate(playerBullet);
             bullet.transform.position = bulletPosition.transform.position;
 
@@ -52,5 +63,28 @@ public class PlayerController : MonoBehaviour
 
         transform.position = pos;
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" || collision.tag == "EnemyBullet")
+        {
+            currenthealth--;
+            text.text = currenthealth.ToString();
+            playExplosion();
+
+            if (currenthealth <= 0)
+            {
+                SceneManager.LoadScene("Fail");
+            }
+        }
+
+    }
+
+    public void playExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(Explosion);
+
+        explosion.transform.position = transform.position;
     }
 }

@@ -5,11 +5,17 @@ using UnityEngine;
 public class EnemyContoller : MonoBehaviour
 {
     float speed;
+    public GameObject Explosion;
+    int maxHealth = 2;
+    int currenthealth;
+    GameObject scoretext;
 
     // Start is called before the first frame update
     void Start()
     {
+        currenthealth = maxHealth;
         speed = 2f;
+        scoretext = GameObject.FindGameObjectWithTag("ScoreText");
     }
 
     // Update is called once per frame
@@ -27,5 +33,29 @@ public class EnemyContoller : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerBullet")
+        {
+            currenthealth--;
+
+            if(currenthealth <= 0)
+            {
+                FindObjectOfType<AudioManager>().Play("Explosion");
+                scoretext.GetComponent<GameScore>().Score += 500;
+                playExplosion();
+                Destroy(gameObject);
+            }
+        }
+
+    }
+
+    public void playExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(Explosion);
+
+        explosion.transform.position = transform.position;
     }
 }
