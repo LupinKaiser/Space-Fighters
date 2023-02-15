@@ -56,9 +56,9 @@ GameObject:
   - component: {fileID: 5451583896027553872}
   - component: {fileID: 5451583896027553873}
   - component: {fileID: 5451583896027553874}
-  - component: {fileID: 5451583896027553879}
   - component: {fileID: 6401227223738112353}
   - component: {fileID: 5451583896027553838}
+  - component: {fileID: 3305125633979577711}
   m_Layer: 0
   m_Name: EnemyBoss
   m_TagString: Enemy
@@ -161,21 +161,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5451583896027553879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5451583896027553875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ecc0c805bad31a4a8d6ad29e7626662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  Explosion: {fileID: 4790284521554780515, guid: 758e96d9cecf2934785eecbe625c6e66, type: 3}
-  maxHealth: 20
 --- !u!61 &6401227223738112353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,6 +204,21 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: c3031a07c64e255448d9365615d5c008, type: 2}
+--- !u!114 &3305125633979577711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451583896027553875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58a4d58c2d64f145b5bd7a3e0cdf938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  Explosion: {fileID: 4790284521554780515, guid: 758e96d9cecf2934785eecbe625c6e66, type: 3}
+  maxHealth: 15
 --- !u!1 &8696055336088220859
 GameObject:
   m_ObjectHideFlags: 0

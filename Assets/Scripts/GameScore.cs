@@ -35,7 +35,7 @@ public class GameScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score >= 10500)
+        if(score >= 11000)
         {
             SceneManager.LoadScene("Win");
         }
